@@ -1,0 +1,14 @@
+<ul>
+{% for flight in flights %}
+{% if flight.tipo == 'Nacional' %}
+<li >
+{{flight.id}}. {{flight.name}} tipo: {{flight.tipo}} <span style="background-color: blue;">precio: {{flight.price}}</span>
+</li>
+{% else %}
+    <li>
+    {{flight.id}}. <b>{{flight.name}}</b> tipo: {{flight.tipo}} precio: {{flight.price}}
+    </li>
+{% endif %}
+
+{% endfor %}
+</ul>

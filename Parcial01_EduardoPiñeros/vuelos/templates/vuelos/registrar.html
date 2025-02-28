@@ -1,0 +1,19 @@
+{% if form.errors %}
+ <ul id="errors" class="alert alert-danger list-unstyled">
+ {% for field, errors in form.errors.items %}
+ {% for error in errors %}
+ <li>{{ error }}</li>
+ {% endfor %}
+ {% endfor %}
+</ul>
+{% endif %}
+<form method="POST" id="form" action="{% url 'registrar' %}">
+    {% csrf_token %}
+    <input type="text" placeholder="Ingrese nombre" name="name" value="{{form.data.name}}" />
+    <select form="form" placeholder="Ingrese Tipo" name="tipo" value="{{form.data.tipo}}">
+        <option value="Nacional">Nacional</option>
+        <option value="Internacional">Internacional</option>
+    </select>
+    <input type="text" placeholder="Ingrese precio" name="price" value="{{form.data.price}}"/>
+    <input type="submit"value="Send" />
+    </form>
